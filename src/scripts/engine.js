@@ -74,6 +74,14 @@ function addListenerHitBox() {
                 // Clique errado, perde vida
                 state.values.lives--;
                 updateLivesDisplay();
+
+                // Flash vermelho no contador de vidas
+                const livesElement = state.view.lives;
+                livesElement.classList.add('hit-wrong');
+                setTimeout(() => {
+                    livesElement.classList.remove('hit-wrong');
+                }, 300);
+
                 if (state.values.lives <= 0) {
                     endGame();
                 }
